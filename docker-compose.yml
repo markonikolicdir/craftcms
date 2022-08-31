@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+  db:
+    image: mariadb:10.4.10
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3355:3306"
+    environment:
+      MYSQL_DATABASE: craft
+      MYSQL_ROOT_PASSWORD: 12345
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql

@@ -1,0 +1,22 @@
+dateModified: 1661940620
+email:
+  fromEmail: markonikolicdir@gmai.com
+  fromName: Craft
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    19b51a7d-00f9-459d-852e-0fd5ae87e1fd: Craft # Craft
+    48a83c57-f9d3-4345-bc84-77f8285871ca: Craft # Craft
+    d4c18500-9711-4a09-98d1-bd821870de1d: Common # Common
+system:
+  edition: solo
+  live: true
+  name: Craft
+  schemaVersion: 3.7.33
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true
