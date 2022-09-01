@@ -3,22 +3,32 @@
 namespace modules\test\controllers;
 
 use craft\web\Controller;
+use Exception;
 use modules\test\services\HousesService;
 use modules\test\traits\PluckTrait;
+use craft\web\View;
+use yii\web\Response;
 
 class TestController extends Controller
 {
-
     use PluckTrait;
 
-    public function actionPluck()
+    public function actionPluck(): Response
     {
         $service = new HousesService();
+        try {
+            $api = $service->getHouses();
 
-        $plucked = $this->array_pluck($service->getHouses(), 'founder');
+            $plucked = $this->array_pluck($api, 'founder');
 
-        var_dump($plucked);
+        } catch (Exception $e) {
+            $error = $e->getMessage();
+        }
 
-        die();
+        return $this->renderTemplate(
+            '_test',
+            ['plucked' => $plucked ?? [], 'error' => $error ?? ''],
+            View::TEMPLATE_MODE_SITE
+        );
     }
 }

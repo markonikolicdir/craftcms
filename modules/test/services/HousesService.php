@@ -21,10 +21,10 @@ class HousesService
             throw new Exception('Problem with fetching data from api');
         }
 
-        if($res->getStatusCode() === 200) {
-            return json_decode($res->getBody()->getContents(), true);
+        if($res->getStatusCode() != 200) {
+            throw new Exception('Status code not valid');
         }
 
-        return [];
+        return json_decode($res->getBody()->getContents(), true) ?? [];
     }
 }
