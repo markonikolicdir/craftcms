@@ -10,8 +10,10 @@ class HousesService
 {
     /**
      * @throws Exception
+     *
+     * @return mixed[]
      */
-    public function getHouses()
+    public function getHouses(): array
     {
         $client = new Client(['base_uri' => 'https://wizard-world-api.herokuapp.com']);
 
@@ -25,6 +27,8 @@ class HousesService
             throw new Exception('Status code not valid');
         }
 
-        return json_decode($res->getBody()->getContents(), true) ?? [];
+        $data = json_decode($res->getBody()->getContents(), true);
+
+        return is_array($data) ? $data : [];
     }
 }

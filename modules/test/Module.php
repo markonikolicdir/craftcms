@@ -10,7 +10,7 @@ use yii\base\Event;
 
 class Module extends \yii\base\Module
 {
-    public function init()
+    public function init(): void
     {
         // Define a custom alias named after the namespace
         Craft::setAlias('@test', __DIR__);

@@ -4,10 +4,14 @@ namespace modules\test\traits;
 
 trait PluckTrait
 {
-    function array_pluck($array, $key): array
+    /**
+     * @param mixed[] $array
+     * @return mixed[]
+     */
+    function array_pluck(array $array, mixed $key): array
     {
-        return array_map(function($v) use ($key) {
-            return is_object($v) ? $v->$key : $v[$key];
+        return array_map(function($value) use ($key) {
+            return is_object($value) ? $value->$key : $value[$key];
         }, $array);
     }
 }
