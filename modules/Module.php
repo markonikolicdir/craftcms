@@ -25,13 +25,13 @@ class Module extends \yii\base\Module
     /**
      * Initializes the module.
      */
-    public function init()
+    public function init(): void
     {
         // Set a @modules alias pointed to the modules/ directory
-        Craft::setAlias('@modules', __DIR__);
+        Craft::setAlias('@modules', __DIR__);/** @phpstan-ignore-line */
 
         // Set the controllerNamespace based on whether this is a console or web request
-        if (Craft::$app->getRequest()->getIsConsoleRequest()) {
+        if (Craft::$app->getRequest()->getIsConsoleRequest()) {/** @phpstan-ignore-line */
             $this->controllerNamespace = 'modules\\console\\controllers';
         } else {
             $this->controllerNamespace = 'modules\\controllers';

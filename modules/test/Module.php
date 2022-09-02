@@ -14,10 +14,10 @@ class Module extends \yii\base\Module
     public function init(): void
     {
         // Define a custom alias named after the namespace
-        Craft::setAlias('@test', __DIR__);
+        Craft::setAlias('@test', __DIR__);/** @phpstan-ignore-line */
 
         // Set the controllerNamespace based on whether this is a console or web request
-        if (Craft::$app->getRequest()->getIsConsoleRequest()) {
+        if (Craft::$app->getRequest()->getIsConsoleRequest()) {/** @phpstan-ignore-line */
             $this->controllerNamespace = 'modules\\test\\console\\controllers';
         } else {
             $this->controllerNamespace = 'modules\\test\\controllers';
@@ -36,6 +36,6 @@ class Module extends \yii\base\Module
         );
 
         $extension = new PluckExtension();
-        Craft::$app->view->registerTwigExtension($extension);
+        Craft::$app->view->registerTwigExtension($extension);/** @phpstan-ignore-line */
     }
 }

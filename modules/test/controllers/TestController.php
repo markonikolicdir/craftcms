@@ -10,6 +10,9 @@ use yii\web\Response;
 
 class TestController extends Controller
 {
+    /**
+     * @param mixed[] $config
+     */
     public function __construct($id, $module, $config, private HousesService $service)
     {
         parent::__construct($id, $module, $config);
