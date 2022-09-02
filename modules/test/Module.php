@@ -6,6 +6,7 @@ namespace modules\test;
 use Craft;
 use craft\events\RegisterUrlRulesEvent;
 use craft\web\UrlManager;
+use modules\test\twig\PluckExtension;
 use yii\base\Event;
 
 class Module extends \yii\base\Module
@@ -33,5 +34,8 @@ class Module extends \yii\base\Module
                 ]);
             }
         );
+
+        $extension = new PluckExtension();
+        Craft::$app->view->registerTwigExtension($extension);
     }
 }

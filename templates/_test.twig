@@ -6,7 +6,7 @@
 </head>
 <body>
 {% block body %}
-    {% for pluck in plucked %}
+    {% for pluck in array_pluck(houses, 'founder') %}
         {{ dump(pluck) }}
     {% endfor %}
 {% endblock %}
