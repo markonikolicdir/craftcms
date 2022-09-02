@@ -10,11 +10,15 @@ use yii\web\Response;
 
 class TestController extends Controller
 {
+    public function __construct($id, $module, $config, private HousesService $service)
+    {
+        parent::__construct($id, $module, $config);
+    }
+
     public function actionPluck(): Response
     {
-        $service = new HousesService();
         try {
-            $houses = $service->getHouses();
+            $houses = $this->service->getHouses();
         } catch (Exception $e) {
             $error = $e->getMessage();
         }

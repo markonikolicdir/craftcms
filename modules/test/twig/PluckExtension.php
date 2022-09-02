@@ -11,13 +11,8 @@ class PluckExtension extends AbstractExtension
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('print_author', [$this, 'printAuthor']),
             new TwigFunction('array_pluck', [$this, 'arrayPluck']),
         ];
-    }
-
-    public function printAuthor($node) {
-        return $node . 'mare';
     }
 
     /**
